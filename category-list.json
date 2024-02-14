@@ -1,7 +1,7 @@
 [
     {
-        "name": "Security",
-        "font": "shield",
+        "name": "Network Security",
+        "font": "shield-network",
         "description": "Security Apps"
     }
 ]

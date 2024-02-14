@@ -40,5 +40,5 @@ x-casaos:
   thumbnail: ""
   title:
     en_us: Graylog
-  category: Security
+  category: Network Security
   port_map: ""
