@@ -4,9 +4,8 @@ name: graylog
 # services definition for the authguardian-graylog application
 services:
   # mongodb services - used for storing graylog configuration
-  mongo-graylog:
+  mongodb:
     image: mongo:6.0.5-jammy
-    container_name: mongodb
     volumes:
       - /DATA/AppData/$AppID/db:/data/db
     restart: unless-stopped
@@ -17,7 +16,38 @@ services:
         - container: /data/db
           description:
             en_us: "Container Path: /data/db"
+  
+  opensearch:
+    image: opensearchproject/opensearch:2
+    environment:
+      - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g"
+      - "bootstrap.memory_lock=true"
+      - "discovery.type=single-node"
+      - "action.auto_create_index=false"
+      - "plugins.security.ssl.http.enabled=false"
+      - "plugins.security.disabled=true"
+    volumes:
+      - /DATA/AppData/$AppID/log_data:/usr/share/opensearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    ports:
+      - 9200:9200/tcp
+    restart: unless-stopped
 
+  x-casaos: # CasaOS specific configuration
+    volumes:
+      - container: usr/share/opensearch/data
+        description:
+          en_us: "Container Path: /usr/share/opensearch/data"
+    ports:
+      - container: "9200"
+        description:
+          en_us: "Container Port: 9200"
 # CasaOS specific configuration
 x-casaos:
   architectures:
