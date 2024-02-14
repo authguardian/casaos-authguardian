@@ -32,6 +32,8 @@ x-casaos:
   developer: ""
   author: authguardian
   icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/graylog.png
+  screenshot_link:
+    - 
   thumbnail: ""
   title:
     en_us: Graylog
