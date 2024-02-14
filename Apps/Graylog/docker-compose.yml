@@ -33,7 +33,10 @@ x-casaos:
   author: authguardian
   icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/graylog.png
   screenshot_link:
-    - 
+    - https://raw.githubusercontent.com/authguardian/casaos-authguardian/main/Apps/Graylog/graylog-1.png
+    - https://raw.githubusercontent.com/authguardian/casaos-authguardian/main/Apps/Graylog/graylog-2.png
+    - https://raw.githubusercontent.com/authguardian/casaos-authguardian/main/Apps/Graylog/graylog-3.png
+    - https://raw.githubusercontent.com/authguardian/casaos-authguardian/main/Apps/Graylog/graylog-4.png
   thumbnail: ""
   title:
     en_us: Graylog
