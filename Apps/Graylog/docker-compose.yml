@@ -1,20 +1,12 @@
 # configuration for authguardian-graylog setup
 name: graylog
 
-networks:
-  graynet:
-    driver: bridge
-
 # services definition for the authguardian-graylog application
 services:
   # mongodb services - used for storing graylog configuration
   mongo-graylog:
     image: mongo:6.0.5-jammy
     container_name: mongodb
-    # ports:
-    #   - 27017:27017
-    networks:
-      - graynet
     volumes:
       - /DATA/AppData/$AppID/db:/data/db
     restart: unless-stopped
@@ -25,11 +17,6 @@ services:
         - container: /data/db
           description:
             en_us: "Container Path: /data/db"
-      # ports:
-      #   - container: "27017"
-      #     description:
-      #       en_us: "Container Port: 27017"
-
 
 # CasaOS specific configuration
 x-casaos:
@@ -38,14 +25,15 @@ x-casaos:
     - arm64
   main: graylog
   description:
-    en_us: Self-hosted Graylog instance
+    en_us: |
+      Graylog provides answers to your team’s security, application, and IT infrastructure questions by enabling you to combine, enrich, correlate, query, and visualize all your log data in one place.
   tagline: 
-    en_us: Graylog
+    en_us: Graylog is a complete observability stack that allows you to monitor and analyze metrics, logs and traces. It allows you to query, visualize, alert on and understand your data.
   developer: ""
   author: authguardian
   icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/graylog.png
   thumbnail: ""
   title:
     en_us: Graylog
-  category: AuthGuardianCasaOS
+  category: Security
   port_map: ""
