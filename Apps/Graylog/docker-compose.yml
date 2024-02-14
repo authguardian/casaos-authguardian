@@ -39,15 +39,15 @@ services:
       - 9200:9200/tcp
     restart: unless-stopped
 
-  x-casaos: # CasaOS specific configuration
-    volumes:
-      - container: usr/share/opensearch/data
-        description:
-          en_us: "Container Path: /usr/share/opensearch/data"
-    ports:
-      - container: "9200"
-        description:
-          en_us: "Container Port: 9200"
+    x-casaos: # CasaOS specific configuration
+      volumes:
+        - container: usr/share/opensearch/data
+          description:
+            en_us: "Container Path: /usr/share/opensearch/data"
+      ports:
+        - container: "9200"
+          description:
+            en_us: "Container Port: 9200"
 # CasaOS specific configuration
 x-casaos:
   architectures:
